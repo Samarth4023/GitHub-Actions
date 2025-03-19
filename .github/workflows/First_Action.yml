@@ -1,1 +1,48 @@
+name: First Action
 
+on: 
+    workflow_dispatch:
+    
+        inputs:
+            name:
+                description: "Person to Greet!"
+
+                default: "World"
+
+                required: true
+
+                type: string
+            city:
+                description: "Favorite City"
+
+                required: true
+
+                default: "Pune"
+
+                type: choice
+
+                options:
+                    - Mumbai
+                    - Udupi
+                    - Manglore
+                    - Banglore
+            favorite_color:
+                description: "Is your favorite color Blue?"
+
+                required: true
+                
+                type: boolean
+            
+jobs:
+    greet:
+        name: "First Action Greeting!"
+
+        runs-on: 
+            - ubuntu-latest 
+        
+        steps: 
+            - name: Congratulate!
+              run: |
+                echo "Hello! ${{github.event.inputs.name}}"
+                echo "Your Favorite city is ${{github.event.inputs.city}}"
+                echo "Your Favorite color is ${{github.event.inputs.favorite_color}}"
