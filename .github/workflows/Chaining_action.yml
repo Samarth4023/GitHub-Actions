@@ -19,7 +19,9 @@ jobs:
     job-2: 
         name: Job 2
         runs-on: ubuntu-latest
+        # Conditional Statements
         # if: github.event.inputs.run-job-3 == 'false'
+        # Condition, run this only when job-1 is finished
         needs:
             - job-1
         steps:
