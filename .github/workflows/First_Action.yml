@@ -1,16 +1,18 @@
+# Name of the Workflow.
 name: First Action
 
+# Setter's. When the action will run.
 on: 
     workflow_dispatch:
-    
+        # Inputs the workflow accepts
         inputs:
             name:
                 description: "Person to Greet!"
-
+                # Default value should be there if no value is provided
                 default: "World"
-
+                # Input has to be provided for the wokflow to run
                 required: true
-
+                # Input type(string, choice, boolean)
                 type: string
             city:
                 description: "Favorite City"
@@ -34,12 +36,14 @@ on:
                 type: boolean
             
 jobs:
+    # Job Name
     greet:
+        # Display name for the job
         name: "First Action Greeting!"
-
+        # The type of runer on which the job will run on
         runs-on: 
             - ubuntu-latest 
-        
+        # Sequence of tasks that will be executed as part of job
         steps: 
             - name: Congratulate!
               run: |
