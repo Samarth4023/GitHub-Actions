@@ -63,7 +63,7 @@ jobs:
             var3: myvar3
 
         steps:
-            - name:
+            - name: Print Enviornment Variables
               run: |
                 echo $var1
                 echo ${{env.var1}}
