@@ -70,4 +70,4 @@ jobs:
                 echo $var2
                 echo $var3
               env:
-                var3: myvar3
+                var3: myvariable3
