@@ -16,13 +16,9 @@ on:
                 type: string
             city:
                 description: "Favorite City"
-
                 required: true
-
                 default: "Pune"
-
                 type: choice
-
                 options:
                     - Mumbai
                     - Udupi
@@ -30,9 +26,7 @@ on:
                     - Banglore
             favorite_color:
                 description: "Is your favorite color Blue?"
-
                 required: true
-                
                 type: boolean
             
 jobs:
