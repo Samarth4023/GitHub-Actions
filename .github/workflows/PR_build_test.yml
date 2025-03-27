@@ -28,7 +28,7 @@ jobs:
               run: dotnet test "${{github.workspace}}/src/my_web_app.sln" --no-restore --logger:"junit;LogFilePath=${{github.workspace}}/results/test-files.xml"
 
             - name: Create Test Summary
-              uses: test-summary/actions@v2.4
+              uses: test-summary/action@v2.4
               with:
                 paths: ${{github.workspace}}/results/*.xml
                 outputs: ${{github.workspace}}/results/summary.md
