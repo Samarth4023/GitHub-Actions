@@ -22,7 +22,7 @@ jobs:
               run: dotnet restore "${{github.workspace}}/src/my-web-app.sln"
                 
             - name: build
-              run: dotnet build "${{github.workspace}}/src/my-web-app.sln" --no-restore --configuration release
+              run: dotnet build "${{github.workspace}}/src/my-web-app.sln" --no-restore --configuration Release
 
             - name: test
               run: dotnet test "${{github.workspace}}/src/my-web-app.sln" --no-restore --logger:"junit;LogFilePath=${{github.workspace}}/results/test-files.xml"
@@ -31,7 +31,7 @@ jobs:
               uses: test-summary/action@v2.4
               with:
                 paths: ${{github.workspace}}/results/*.xml
-                outputs: ${{github.workspace}}/results/summary.md
+                output: ${{github.workspace}}/results/summary.md
                 show: "all"
               if: always()
 
