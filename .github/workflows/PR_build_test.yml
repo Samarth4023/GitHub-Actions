@@ -19,19 +19,19 @@ jobs:
                 dotnet-version: "v8.0.x"
 
             - name: Restore Dependencies
-              run: dotnet restore "${{github.workspace}}/src/my_web_app.sln"
+              run: dotnet restore "${{github.workspace}}/src/my-web-app.sln"
                 
             - name: build
-              run: dotnet build "${{github.workspace}}/src/my_web_app.sln" --no-restore --configuration release
+              run: dotnet build "${{github.workspace}}/src/my-web-app.sln" --no-restore --configuration Release
 
             - name: test
-              run: dotnet test "${{github.workspace}}/src/my_web_app.sln" --no-restore --logger:"junit;LogFilePath=${{github.workspace}}/results/test-files.xml"
+              run: dotnet test "${{github.workspace}}/src/my-web-app.sln" --no-restore --logger:"junit;LogFilePath=${{github.workspace}}/results/test-files.xml"
 
             - name: Create Test Summary
-              uses: test-summary/actions@v2.4
+              uses: test-summary/action@v2.4
               with:
                 paths: ${{github.workspace}}/results/*.xml
-                outputs: ${{github.workspace}}/results/summary.md
+                output: ${{github.workspace}}/results/summary.md
                 show: "all"
               if: always()
 
@@ -43,10 +43,10 @@ jobs:
               if: always()
 
             - name: Publish
-              run: dotnet publish "${{github.workspace}}/src/my_web_app/my_web_app.csproj" -c Release -o mywebapp
+              run: dotnet publish "${{github.workspace}}/src/my-web-app/my-web-app.csproj" -c Release -o mywebapp
 
             - name: Upload Build Artifact
-              uses: actions/build-artifact@v4
+              uses: actions/upload-artifact@v4
               with:
                 name: myapp
                 path: mywebapp/**
